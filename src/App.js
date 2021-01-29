@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import ColumnChart from "./components/ColumnChart";
+import Header from "./components/Header";
+import ReportCard from "./components/ReportCard";
+import TableData from "./components/TableData";
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-3">
+      <Header />
+      <div className="row">
+        <div className="col-md-6 p-0 d-sm-flex flex-fill">
+          <ReportCard title="RainFall Inc" value={4.5} delta={69.69} />
+          <ReportCard title="Temp Inc" value={3.2} delta={32.3} />
+        </div>
+        <div className="col-md-6 p-0 d-sm-flex flex-fill">
+          <ReportCard title="RainFall Inc" value={4.5} delta={69.69} />
+          <ReportCard title="Temp Inc" value={3.2} delta={-32.3} />
+        </div>
+      </div>
+      <div className="d-lg-flex">
+        <ColumnChart {...props} />
+        <ColumnChart {...props} />
+      </div>
+      <div className="d-lg-flex">
+        <TableData />
+        <TableData />
+        <TableData />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
